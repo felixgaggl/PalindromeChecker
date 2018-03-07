@@ -1,6 +1,7 @@
 package com.example.felix.palindromechecker;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,11 +32,20 @@ public class MainActivity extends AppCompatActivity {
                 {
                     public void onClick(View view){
                         inputText = myEdit.getText().toString();
-                        
+                        myTextView.setTextSize(20);
+                        inputText = inputText.trim();
+
+                        if(inputText.length() >= 5){
+
                         if(isPalindrome(inputText)){
                             myTextView.setText("Is Palindrome");
+                            myTextView.setTextColor(Color.GREEN);
                         }else{
                             myTextView.setText("Is No Palindrome");
+                            myTextView.setTextColor(Color.BLACK);
+                        }}else{
+                            myTextView.setText("Your Input is too short!");
+                            myTextView.setTextColor(Color.RED);
                         }
                     }
                 }
